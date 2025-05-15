@@ -6,7 +6,7 @@ int N, M, a, ret = 0, cnt[15005];
 
 int main()
 {
-
+	ios::sync_with_stdio(false), cin.tie(NULL);
 	cin >> N >> M;
 
 	for (int i = 0; i < N; i++)
@@ -14,12 +14,22 @@ int main()
 		cin >> a;
 		cnt[i] = a;
 	}
-	for (int i = 0; i < N; i++)
+
+	if (M > 200000)
 	{
-		for (int j = i + 1; j < N; j++)
-		{
-			if (cnt[i] + cnt[j] == M) ret++;
-		}
+		cout << 0 << "\n";
 	}
-	cout << ret;
+	else
+	{
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = i + 1; j < N; j++)
+			{
+				if (cnt[i] + cnt[j] == M) ret++;
+			}
+		}
+		cout << ret;
+	}
+
+	
 }
